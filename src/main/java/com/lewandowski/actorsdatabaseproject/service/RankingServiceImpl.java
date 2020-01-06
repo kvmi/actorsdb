@@ -1,13 +1,15 @@
 package com.lewandowski.actorsdatabaseproject.service;
 
-import com.lewandowski.actorsdatabaseproject.controller.RankingRepo;
+import com.lewandowski.actorsdatabaseproject.repository.RankingRepo;
 import com.lewandowski.actorsdatabaseproject.model.Ranking;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+
 public class RankingServiceImpl implements RankingService {
     private RankingRepo rankingRepo;
 

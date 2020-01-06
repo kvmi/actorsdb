@@ -15,20 +15,17 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
-
-
 @RunWith(SpringRunner.class)
 @ComponentScan("com.lewandowski.actorsdatabaseproject.service")
 @DataJpaTest
-class ActorRepoTest {
+class MovieCategoryRepoTest {
 
     private ActorService as;
     private MovieCategoryService mcs;
     private RankingService rs;
 
     @Autowired
-    public ActorRepoTest(ActorService as, MovieCategoryService mcs, RankingService rs) {
+    public MovieCategoryRepoTest(ActorService as, MovieCategoryService mcs, RankingService rs) {
         this.as = as;
         this.mcs = mcs;
         this.rs = rs;
@@ -67,43 +64,31 @@ class ActorRepoTest {
     }
 
     @Test
-    void contextLoads(){
+    void contextLoads() {
 
     }
 
     @Test
-    public void testOneToMany(){
-        Ranking ranking1 = new Ranking(4);
-        Actor actor = new Actor("Maciej","Kot", 23.0, (short) 4, 1988);
-        Actor actor2 = new Actor("Mateusz","Kapelusz", 28.0, (short) 1, 1999);
-        actor.setRanking(ranking1);
-        actor2.setRanking(ranking1);
-        rs.add(ranking1);
-        Assert.assertEquals(as.findAllByRanking(ranking1).size(), 0);
-        as.add(actor);
-        as.add(actor2);
-        Assert.assertEquals(as.findAllByRanking(ranking1).size(), 2);
+    void testDeleteMovieCategory(){
+        MovieCategory movieCategory1 = new MovieCategory("comedy");
+        mcs.add(movieCategory1);
+        Assert.assertNotNull(mcs.findById(movieCategory1.getId()));
+        mcs.delete(movieCategory1.getId());
+        Assert.assertNull(mcs.findById(movieCategory1.getId()));
     }
     @Test
-    void testSaveActor(){
-        Actor actor = new Actor("Tomasz", "Komasz", 24.0,(short) 3,1977);
-        as.add(actor);
-        Assert.assertNotNull(as.findAll());
+    void testUpdateMovieCategory(){
+        MovieCategory movieCategory1 = new MovieCategory("horror");
+        mcs.add(movieCategory1);
+        MovieCategory movieCategory2 = new MovieCategory("thriller");
+        mcs.update(movieCategory2,movieCategory1.getId());
+        Assert.assertEquals(mcs.findById(movieCategory1.getId()).getName(),"horror");
     }
     @Test
-    void testfindAllActorsWithOscarAcquiredGreaterThan(){
-        List<Actor> actors = as.findAllActorsWithOscarAcquiredGreaterThan((short) 1);
-        Assert.assertEquals(actors.size(), 3);
-    }
-    @Test
-    void testfindAllActorsWithMoreMoviesPlayedThan(){
-        List<Actor> actors = as.findAllActorsWithMoreMoviesPlayedThan(20.0);
-        Assert.assertEquals(actors.size(), 3);
-    }
-    @Test
-    void testfindAllByFirstNameAndOscarAcquiredMoreThanAndMoviesPlayedLessThan(){
-        List<Actor> actors = as.findAllByFirstNameAndOscarAcquiredMoreThanAndMoviesPlayedLessThan("Mateusz", (short) 1, 30);
-        Assert.assertEquals(actors.size(),1);
+    void testSaveTeam(){
+        MovieCategory movieCategory1 = new MovieCategory("horror");
+        mcs.add(movieCategory1);
+        Assert.assertNotNull(mcs.findById(movieCategory1.getId()));
     }
 
 }

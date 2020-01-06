@@ -23,9 +23,9 @@ public interface ActorService {
 
     List<Actor> findAllByMovieCategory(MovieCategory movieCategory);
 
-    List<Actor> findAllActorsWithOscarAcquiredGreaterThan(Double oscarAcquired);
+    List<Actor> findAllActorsWithOscarAcquiredGreaterThan(Short oscarAcquired);
 
-    List<Actor> findAllActorsWithMoreMoviesPlayedThan(Integer moviesPlayed);
+    List<Actor> findAllActorsWithMoreMoviesPlayedThan(Double moviesPlayed);
 
     List<Actor> findAllByFirstNameAndOscarAcquiredMoreThanAndMoviesPlayedLessThan(String firstName, short oscarAcquired, int moviesPlayed);
 

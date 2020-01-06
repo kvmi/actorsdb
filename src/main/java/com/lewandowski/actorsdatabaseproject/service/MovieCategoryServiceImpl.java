@@ -1,14 +1,15 @@
 package com.lewandowski.actorsdatabaseproject.service;
 
-import com.lewandowski.actorsdatabaseproject.controller.MovieCategoryRepo;
-import com.lewandowski.actorsdatabaseproject.model.Actor;
+import com.lewandowski.actorsdatabaseproject.repository.MovieCategoryRepo;
 import com.lewandowski.actorsdatabaseproject.model.MovieCategory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+
 public class MovieCategoryServiceImpl implements MovieCategoryService {
     private MovieCategoryRepo movieCategoryRepo;
 

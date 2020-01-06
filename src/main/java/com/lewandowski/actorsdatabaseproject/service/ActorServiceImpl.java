@@ -1,10 +1,12 @@
 package com.lewandowski.actorsdatabaseproject.service;
 
-import com.lewandowski.actorsdatabaseproject.controller.ActorRepo;
+import com.lewandowski.actorsdatabaseproject.repository.ActorRepo;
 import com.lewandowski.actorsdatabaseproject.model.Actor;
 import com.lewandowski.actorsdatabaseproject.model.MovieCategory;
 import com.lewandowski.actorsdatabaseproject.model.Ranking;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -45,16 +47,16 @@ public class ActorServiceImpl implements ActorService {
     @Override
     public List<Actor> findAllByMovieCategory(MovieCategory movieCategory) { return actorRepo.findAllByMovieCategory(movieCategory); }
     @Override
-    public List<Actor> findAllActorsWithOscarAcquiredGreaterThan(Double oscarAcquired){
+    public List<Actor> findAllActorsWithOscarAcquiredGreaterThan(Short oscarAcquired){
         return actorRepo.findAllActorsWithOscarAcquiredGreaterThan(oscarAcquired);
     }
     @Override
-    public List<Actor> findAllActorsWithMoreMoviesPlayedThan(Integer moviesPlayed){
+    public List<Actor> findAllActorsWithMoreMoviesPlayedThan(Double moviesPlayed){
         return actorRepo.findAllActorsWithMoreMoviesPlayedThan(moviesPlayed);
     }
     @Override
     public List<Actor> findAllByFirstNameAndOscarAcquiredMoreThanAndMoviesPlayedLessThan(String firstName, short oscarAcquired, int moviesPlayed){
-        return actorRepo.findAllByFirstNameAndOscarAcquiredMoreThanAndMoviesPlayedLessThan(firstName, oscarAcquired, moviesPlayed);
+        return actorRepo.findAllByFirstNameAndOscarAcquiredGreaterThanAndMoviesPlayedLessThan(firstName, oscarAcquired, moviesPlayed);
     }
     @Override
     public Actor findTopByOrderByOscarAcquiredDesc() { return actorRepo.findTopByOrderByOscarAcquiredDesc(); }

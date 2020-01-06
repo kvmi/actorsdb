@@ -1,9 +1,6 @@
-package com.lewandowski.actorsdatabaseproject.controller;
+package com.lewandowski.actorsdatabaseproject.repository;
 
-import com.lewandowski.actorsdatabaseproject.model.Actor;
 import com.lewandowski.actorsdatabaseproject.model.MovieCategory;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 
 import java.util.List;
