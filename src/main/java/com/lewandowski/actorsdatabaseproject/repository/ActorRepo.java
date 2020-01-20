@@ -18,7 +18,7 @@ public interface ActorRepo extends Repository<Actor, Integer> {
     List<Actor> findAllActorsWithOscarAcquiredGreaterThan(Short oscarAcquired);
     @Query(value="SELECT * FROM ACTOR WHERE MOVIES_PLAYED > ?1", nativeQuery = true)
     List<Actor> findAllActorsWithMoreMoviesPlayedThan(Double moviesPlayed);
-    List<Actor> findAllByFirstNameAndOscarAcquiredGreaterThanAndMoviesPlayedLessThan(String firstName, short oscardAcquired, int moviesPlayed);
+    List<Actor> findAllByFirstNameAndOscarAcquiredGreaterThanAndMoviesPlayedLessThan(String firstName, short oscarAcquired, int moviesPlayed);
     Actor findTopByOrderByOscarAcquiredDesc();
     @Query(value="SELECT * FROM ACTOR WHERE id_movieCategory = ?1", nativeQuery = true)
     List<Actor> findAllActorsFromMovieCategory(Integer movieCategoryId);

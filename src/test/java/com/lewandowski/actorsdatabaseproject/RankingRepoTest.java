@@ -85,7 +85,7 @@ class RankingRepoTest {
         Assert.assertEquals(rs.findById(ranking1.getId()).getPosition(),2);
     }
     @Test
-    void testSaveTeam(){
+    void testSaveMovieCategory(){
         Ranking ranking1 = new Ranking(4);
         rs.add(ranking1);
         Assert.assertNotNull(rs.findById(ranking1.getId()));

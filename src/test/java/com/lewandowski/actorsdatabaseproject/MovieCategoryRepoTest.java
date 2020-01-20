@@ -85,7 +85,7 @@ class MovieCategoryRepoTest {
         Assert.assertEquals(mcs.findById(movieCategory1.getId()).getName(),"horror");
     }
     @Test
-    void testSaveTeam(){
+    void testSaveMovieCategory(){
         MovieCategory movieCategory1 = new MovieCategory("horror");
         mcs.add(movieCategory1);
         Assert.assertNotNull(mcs.findById(movieCategory1.getId()));
