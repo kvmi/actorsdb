@@ -7,12 +7,12 @@ import org.springframework.data.repository.Repository;
 
 import java.util.List;
 
-public interface RankingRepo extends Repository<Actor, Long> {
+public interface RankingRepo extends Repository<Ranking, Long> {
 
     void save(Ranking ranking);
     List<Ranking> findAll();
     Ranking findById(Integer id);
-    Ranking deleteById(Integer id);
-    @Query(value="SELECT * FROM RANKING R JOIN Actor A ON R.id=A.id_ranking WHERE A.firstName = ?2 AND R.pozycja > ?1",nativeQuery = true )
+    void deleteById(Integer id);
+    @Query(value="SELECT * FROM ranking R JOIN Actor A ON R.id=A.id_ranking WHERE A.firstName = ?1 AND R.id = ?2",nativeQuery = true )
     Integer selectActorsWithSelectedRankingAndFirstName(String firstName, Integer position);
 }

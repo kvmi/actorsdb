@@ -39,10 +39,10 @@ class ActorRepoTest {
         Ranking ranking = new Ranking(1);
         Ranking ranking2 = new Ranking(2);
         Ranking ranking3 = new Ranking(3);
-        Actor actor = new Actor("Mariusz","Lewandowski",20.0,(short) 3,1988);
-        Actor actor2 = new Actor("Dariusz","Zapałka",15.0,(short) 3,1984);
-        Actor actor3 = new Actor("Michał","Dręczałka",23.0,(short) 3,1983);
-        Actor actor4 = new Actor("Michał","Żebrowski",80.0,(short) 3,1970);
+        Actor actor = new Actor("Mariusz","Lewandowski",20,(short) 3,1988);
+        Actor actor2 = new Actor("Dariusz","Zapałka",15,(short) 3,1984);
+        Actor actor3 = new Actor("Michał","Dręczałka",23,(short) 3,1983);
+        Actor actor4 = new Actor("Michał","Żebrowski",80,(short) 3,1970);
         MovieCategory movieCategory = new MovieCategory("comedy");
         MovieCategory movieCategory2 = new MovieCategory("horror");
         MovieCategory movieCategory3 = new MovieCategory("thriller");
@@ -74,8 +74,8 @@ class ActorRepoTest {
     @Test
     public void testOneToMany(){
         Ranking ranking1 = new Ranking(4);
-        Actor actor = new Actor("Maciej","Kot", 23.0, (short) 4, 1988);
-        Actor actor2 = new Actor("Mateusz","Kapelusz", 28.0, (short) 1, 1999);
+        Actor actor = new Actor("Maciej","Kot", 23, (short) 4, 1988);
+        Actor actor2 = new Actor("Mateusz","Kapelusz", 28, (short) 1, 1999);
         actor.setRanking(ranking1);
         actor2.setRanking(ranking1);
         rs.add(ranking1);
@@ -86,23 +86,23 @@ class ActorRepoTest {
     }
     @Test
     void testSaveActor(){
-        Actor actor = new Actor("Tomasz", "Komasz", 24.0,(short) 3,1977);
+        Actor actor = new Actor("Tomasz", "Komasz", 24,(short) 3,1977);
         as.add(actor);
         Assert.assertNotNull(as.findAll());
     }
     @Test
     void testfindAllActorsWithOscarAcquiredGreaterThan(){
         List<Actor> actors = as.findAllActorsWithOscarAcquiredGreaterThan((short) 1);
-        Assert.assertEquals(actors.size(), 3);
+        Assert.assertEquals(actors.size(), 4);
     }
     @Test
     void testfindAllActorsWithMoreMoviesPlayedThan(){
-        List<Actor> actors = as.findAllActorsWithMoreMoviesPlayedThan(20.0);
-        Assert.assertEquals(actors.size(), 3);
+        List<Actor> actors = as.findAllActorsWithMoreMoviesPlayedThan(20);
+        Assert.assertEquals(actors.size(), 2);
     }
     @Test
     void testfindAllByFirstNameAndOscarAcquiredMoreThanAndMoviesPlayedLessThan(){
-        List<Actor> actors = as.findAllByFirstNameAndOscarAcquiredMoreThanAndMoviesPlayedLessThan("Mateusz", (short) 1, 30);
+        List<Actor> actors = as.findAllByFirstNameAndOscarAcquiredMoreThanAndMoviesPlayedLessThan("Michał", (short) 1, 30);
         Assert.assertEquals(actors.size(),1);
     }
 

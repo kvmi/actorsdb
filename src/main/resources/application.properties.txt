@@ -1,7 +1,6 @@
 spring.jpa.database-platform=org.hibernate.dialect.HSQLDialect
-vaadin.compatibilityMode = true
 spring.datasource.driver-class-name=org.hsqldb.jdbc.JDBCDriver
-spring.datasource.url=jdbc:hsqldb:hsql://localhost/actors
+spring.datasource.url=jdbc:hsqldb:hsql://workdb
 spring.datasource.username=SA
 spring.datasource.password=
 spring.jpa.hibernate.ddl-auto=create-drop

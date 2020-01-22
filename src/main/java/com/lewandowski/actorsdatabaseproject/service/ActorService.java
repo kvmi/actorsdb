@@ -25,7 +25,7 @@ public interface ActorService {
 
     List<Actor> findAllActorsWithOscarAcquiredGreaterThan(Short oscarAcquired);
 
-    List<Actor> findAllActorsWithMoreMoviesPlayedThan(Double moviesPlayed);
+    List<Actor> findAllActorsWithMoreMoviesPlayedThan(int moviesPlayed);
 
     List<Actor> findAllByFirstNameAndOscarAcquiredMoreThanAndMoviesPlayedLessThan(String firstName, short oscarAcquired, int moviesPlayed);
 

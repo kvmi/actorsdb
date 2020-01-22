@@ -17,7 +17,7 @@ public class Actor {
     @Column(name = "last_name")
     private String lastName;
     @Column(name = "movies_played")
-    private Double moviesPlayed;
+    private int moviesPlayed;
     @Column(name = "oscar_acquired")
     private short oscarAcquired;
     @Column(name = "birth_year")
@@ -32,7 +32,7 @@ public class Actor {
     public Actor() {
     }
 
-    public Actor(String firstName, String lastName, Double moviesPlayed, short oscarAcquired, int birthYear) {
+    public Actor(String firstName, String lastName, int moviesPlayed, short oscarAcquired, int birthYear) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.moviesPlayed = moviesPlayed;
@@ -64,11 +64,11 @@ public class Actor {
         this.lastName = lastName;
     }
 
-    public Double getMoviesPlayed() {
+    public int getMoviesPlayed() {
         return moviesPlayed;
     }
 
-    public void setMoviesPlayed(Double moviesPlayed) {
+    public void setMoviesPlayed(int moviesPlayed) {
         this.moviesPlayed = moviesPlayed;
     }
 

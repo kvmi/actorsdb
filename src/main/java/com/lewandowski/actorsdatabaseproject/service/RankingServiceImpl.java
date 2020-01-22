@@ -43,6 +43,6 @@ public class RankingServiceImpl implements RankingService {
 
     @Override
     public Integer selectActorsWithSelectedRankingAndFirstName(String firstName, Ranking ranking) {
-        return rankingRepo.selectActorsWithSelectedRankingAndFirstName(firstName, ranking.getPosition());
+        return rankingRepo.selectActorsWithSelectedRankingAndFirstName(firstName, ranking.getId());
     }
 }

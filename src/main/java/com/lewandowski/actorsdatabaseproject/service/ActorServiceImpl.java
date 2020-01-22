@@ -51,7 +51,7 @@ public class ActorServiceImpl implements ActorService {
         return actorRepo.findAllActorsWithOscarAcquiredGreaterThan(oscarAcquired);
     }
     @Override
-    public List<Actor> findAllActorsWithMoreMoviesPlayedThan(Double moviesPlayed){
+    public List<Actor> findAllActorsWithMoreMoviesPlayedThan(int moviesPlayed){
         return actorRepo.findAllActorsWithMoreMoviesPlayedThan(moviesPlayed);
     }
     @Override

@@ -36,10 +36,10 @@ class MovieCategoryRepoTest {
         Ranking ranking = new Ranking(1);
         Ranking ranking2 = new Ranking(2);
         Ranking ranking3 = new Ranking(3);
-        Actor actor = new Actor("Mariusz","Lewandowski",20.0,(short) 3,1988);
-        Actor actor2 = new Actor("Dariusz","Zapałka",15.0,(short) 3,1984);
-        Actor actor3 = new Actor("Michał","Dręczałka",23.0,(short) 3,1983);
-        Actor actor4 = new Actor("Michał","Żebrowski",80.0,(short) 3,1970);
+        Actor actor = new Actor("Mariusz","Lewandowski",20,(short) 3,1988);
+        Actor actor2 = new Actor("Dariusz","Zapałka",15,(short) 3,1984);
+        Actor actor3 = new Actor("Michał","Dręczałka",23,(short) 3,1983);
+        Actor actor4 = new Actor("Michał","Żebrowski",80,(short) 3,1970);
         MovieCategory movieCategory = new MovieCategory("comedy");
         MovieCategory movieCategory2 = new MovieCategory("horror");
         MovieCategory movieCategory3 = new MovieCategory("thriller");
@@ -82,7 +82,7 @@ class MovieCategoryRepoTest {
         mcs.add(movieCategory1);
         MovieCategory movieCategory2 = new MovieCategory("thriller");
         mcs.update(movieCategory2,movieCategory1.getId());
-        Assert.assertEquals(mcs.findById(movieCategory1.getId()).getName(),"horror");
+        Assert.assertEquals(mcs.findById(movieCategory1.getId()).getName(),"thriller");
     }
     @Test
     void testSaveMovieCategory(){
