@@ -90,8 +90,6 @@ class RankingRepoTest {
         rs.add(ranking1);
         Assert.assertNotNull(rs.findById(ranking1.getId()));
     }
-    @Test
-    void selectActorsWithSelectedRankingAndFirstName(){
-        Assert.assertEquals(2, (int) rs.selectActorsWithSelectedRankingAndFirstName("Dariusz", rs.findById(2)));
 
-}}
+
+}
